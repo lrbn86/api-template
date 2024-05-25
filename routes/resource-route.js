@@ -1,4 +1,4 @@
-const resourceController = require('../controllers/resource-controller.js');
+const resource = require('../models/resource');
 const express = require('express');
 const router = express.Router();
 
@@ -16,7 +16,7 @@ const router = express.Router();
  */
 router.post('/', (req, res) => {
   return res.json({
-    message: "CREATE A RESOURCE"
+    message: "CREATE A RESOURCE",
   });
 });
 
@@ -34,7 +34,10 @@ router.post('/', (req, res) => {
  */
 router.get('/', (req, res) => {
   return res.json({
-    message: "GET ALL RESOURCE"
+    message: "GET ALL RESOURCE",
+    data: {
+      resource: resource.getResource()
+    }
   });
 });
 

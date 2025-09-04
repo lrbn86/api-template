@@ -1,11 +1,12 @@
-import * as resource from '../models/resource';
+import resource from '../models/resource';
 import express from 'express';
 
 const router = express.Router();
 
 router.post('/', async (req, res, next) => {
+  // const { title, text } = req.body ?? {};
   try {
-    return res.json({
+    return res.status(201).json({
       message: "CREATE A RESOURCE",
     });
   } catch (e) {
@@ -14,6 +15,7 @@ router.post('/', async (req, res, next) => {
 });
 
 router.get('/', async (req, res, next) => {
+  // Filtering and Pagination
   try {
     return res.json({
       message: "GET ALL RESOURCE",
@@ -27,15 +29,10 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
+  const { id } = req.params ?? {};
   try {
-    const id = parseInt(req.params.id);
-    if (!id) {
-      return res.status(400).json({
-        message: 'Id path parameter required'
-      });
-    }
     return res.status(200).json({
-      message: 'GET A RESOURCE BY ID'
+      message: `GET A RESOURCE BY ID ${id}`
     });
   } catch (e) {
     next(e);
@@ -43,28 +40,21 @@ router.get('/:id', async (req, res, next) => {
 });
 
 router.put('/:id', async (req, res, next) => {
+  const { id } = req.params ?? {};
   try {
-    const id = parseInt(req.params.id);
-    if (!id) {
-      return res.status(400).json({
-        message: 'Id path parameter required'
-      });
-    }
+    return res.status(200).json({
+      message: `UPDATE A RESOURCE BY ID ${id}`
+    });
   } catch (e) {
     next(e);
   }
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
+  const { id } = req.params ?? {};
   try {
-    const id = parseInt(req.params.id);
-    if (!id) {
-      return res.status(400).json({
-        message: 'Id path parameter required'
-      });
-    }
     return res.status(200).json({
-      message: 'DELETE A RESOURCE BY ID'
+      message: `DELETE A RESOURCE BY ID ${id}`,
     });
   } catch (e) {
     next(e);

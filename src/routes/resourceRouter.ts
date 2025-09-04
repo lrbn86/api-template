@@ -1,4 +1,4 @@
-import resource from '../models/resource';
+import resourceService from '../services/resourceService';
 import express from 'express';
 
 const router = express.Router();
@@ -17,10 +17,11 @@ router.post('/', async (req, res, next) => {
 router.get('/', async (req, res, next) => {
   // Filtering and Pagination
   try {
+    const resources = await resourceService.getResources();
     return res.json({
       message: "GET ALL RESOURCE",
       data: {
-        resource: resource.getResource()
+        resources
       }
     });
   } catch (e) {

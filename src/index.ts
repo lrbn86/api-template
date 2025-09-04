@@ -5,7 +5,6 @@ import morgan from 'morgan';
 import jwt from 'jsonwebtoken';
 import bcryptjs from 'bcryptjs';
 import { rateLimit } from 'express-rate-limit';
-import { Pool } from 'pg';
 import resourceRoute from './routes/resourceRouter';
 
 const app = express();

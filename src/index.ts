@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -15,6 +15,13 @@ app.use(helmet());
 app.use(rateLimit({ windowMs: 10 * 60 * 1000, limit: 100 }));
 
 app.use('/resource', resourceRoute);
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.sendStatus(404);
+});
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error(err);
+  res.sendStatus(500);
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

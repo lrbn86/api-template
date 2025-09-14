@@ -16,14 +16,23 @@ app.use(rateLimit({ windowMs: 10 * 60 * 1000, limit: 100 }));
 
 app.use('/resource', resourceRoute);
 app.use((req: Request, res: Response, next: NextFunction) => {
-  res.sendStatus(404);
+  return res.status(404).json({
+    error: {
+      message: 'Resource not found'
+    }
+  });
 });
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err);
-  res.sendStatus(500);
+  return res.status(500).json({
+    error: {
+      message: 'An unexpected error occurred. Please try again later.',
+      referenceId: crypto.randomUUID()
+    }
+  });
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);
 });

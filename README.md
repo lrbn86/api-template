@@ -1,36 +1,42 @@
 # Project Title
-A brief overview text.
 
-## Development
-```
-git clone http://github.com/lrbn86/name.git
-cd name
-npm install
-```
+This project
 
-1. Start server
-```
-npm start
-```
+## Table of Contents
 
-2. Run tests
-```
-npm run test
-```
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [API Documentation](#api-documentation)
+- [License](#license)
 
-## Examples
-TODO
+## Features
 
-## Endpoints
-| Method | Path           | Description  |
-| ------ | -------------- | ------------ |
-| POST   | /resources     | Create       |
-| GET    | /resources     | Get all      |
-| GET    | /resources/:id | Get by Id    |
-| PUT    | /resources/:id | Update by Id |
-| DELETE | /resources/:id | Delete by Id |
+- Feature 1
+- Feature 2
+
+## Getting Started
+
+- Contribute by creating issues and/or pull requests
+- See `package.json` for more project details such as script commands and dependencies
+
+## API Documentation
+
+This a [RESTful API](https://restfulapi.net/). It works only with JSON when accepting requests and returning responses. It also uses standard HTTP response codes, authentication, and verbs.
+
+### Authentication & Authorization
+
+This API uses - to authenticate clients and role-based access control (RBAC) to authorize clients on certain actions.
+
+### Endpoints
+
+| Endpoint       | Method | Description  | Parameters | Example Responses |
+| -------------- | ------ | ------------ | ---------- | ----------------- |
+| /resources     | POST   | Create       | {""}       |
+| /resources     | GET    | Get all      |
+| /resources/:id | GET    | Get by Id    |
+| /resources/:id | PUT    | Update by Id |
+| /resources/:id | DELETE | Delete by Id |
 
 ## License
-This is available under the [MIT license](https://opensource.org/licenses/MIT). This also includes external libraries that are available under a variety of licenses. See [LICENSE](https://github./com/project-name/blob/HEAD/LICENSE) for the full license text.
 
-
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). See [LICENSE](https://github./com/project-name/blob/HEAD/LICENSE) for the full license text.

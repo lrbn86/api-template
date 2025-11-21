@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && node .",
     "build": "npx tsc",
-    "test": "vitest"
+    "test": "vitest run"
   },
   "author": "lrbn86",
   "license": "MIT",

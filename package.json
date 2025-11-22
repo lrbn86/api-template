@@ -4,11 +4,11 @@
   "description": "",
   "main": "./dist/src/index.js",
   "scripts": {
-    "start": "npm run build && node .",
+    "start": "npm run build && node --env-file=.env .",
     "build": "npx tsc",
     "test": "vitest run"
   },
-  "author": "lrbn86",
+  "author": "Brandon Nguyen (@lrbn86)",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

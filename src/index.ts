@@ -8,23 +8,23 @@ for (const env of environmentVars) {
 }
 
 import express from 'express';
-import cors from 'cors';
 import helmet from 'helmet';
-import morgan from 'morgan';
+import cors from 'cors';
 import { rateLimit } from 'express-rate-limit';
+import morgan from 'morgan';
 import resourceRoute from './routes/resource.router';
 import authenticate from './middlewares/authenticate';
 import error from './middlewares/error';
 
 const app = express();
-app.use(express.json());
-app.use(morgan('combined'));
-app.use(cors());
 app.use(helmet());
+app.use(cors());
+app.use(express.json());
 app.use(rateLimit({
   windowMs: 15 * 60 * 1000,
   limit: 100,
 }));
+app.use(morgan('combined'));
 
 app.use(authenticate);
 app.use('/resource', resourceRoute);

@@ -1,3 +1,12 @@
+const environmentVars = [
+  'APP_NAME', 'APP_ENV', 'APP_DEBUG',
+  'HOST', 'PORT', 'JWT_SECRET',
+]
+
+for (const env of environmentVars) {
+  if (!process.env[env]) throw new Error(`env: ${env} undefined`);
+}
+
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -14,6 +23,7 @@ app.use(cors());
 app.use(helmet());
 app.use(rateLimit({
   windowMs: 15 * 60 * 1000,
+  limit: 100,
 }));
 
 app.use(authenticate);
